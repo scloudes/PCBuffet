@@ -1,13 +1,62 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.border-bottom {
+  -webkit-box-shadow: 0 8px 6px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 8px 6px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 6px 0px rgba(0, 0, 0, 0.3);
+  z-index: 9;
+}
+
+.navbar-brand {
+  text-align: start;
+}
+
+.hidden-sm {
+  display: inline;
+}
+
+.intersection-background {
+  min-height: 30rem;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.intersection-overlay {
+  background: rgba(122, 118, 118, 0.75);
+  min-height: 30rem;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.text-orange {
+  color: rgb(231, 167, 50);
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.measurement-icon{
+  max-height: 128px;
+  min-height: 64px;
+}
+
+@media (max-width: 576px) {
+  .navbar-brand {
+    text-align: center;
+  }
+  .hidden-sm {
+    display: none;
+  }
 }
