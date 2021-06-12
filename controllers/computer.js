@@ -11,8 +11,8 @@ const getComputers = async (req, res, next) => {
 
 const getComputerById = async (req, res, next) => {
   try {
-    const Computer = await Computer.findById(req.params.computerId);
-    res.status(200).json(Computer);
+    const computer = await Computer.findById(req.params.computerId);
+    res.status(200).json(computer);
   } catch (err) {
     next(err);
   }
@@ -44,8 +44,8 @@ const updateComputer = async (req, res, next) => {
 
 const deleteComputer = async (req, res, next) => {
   try {
-    const Computer = await Computer.findByIdAndDelete(req.params.computerId);
-    res.status(200).json(Computer);
+    const computer = await Computer.findByIdAndDelete(req.params.computerId);
+    res.status(200).json(computer);
   } catch (err) {
     next(err);
   }
