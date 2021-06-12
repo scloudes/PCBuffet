@@ -10,10 +10,10 @@ const {
 
 const router = express.Router();
 
-router.get("computer/", getComputers);
-router.get("computer/:computerId", getComputerById);
-router.post("computer/", createComputer);
-router.put("computer/:computerId", updateComputer);
-router.delete("computer/:computerId", deleteComputer);
+router.get("/computer/", getComputers);
+router.get("/computer/:computerId", getComputerById);
+router.post("/computer/", createComputer);
+router.put("/computer/:computerId", updateComputer);
+router.delete("/computer/:computerId", deleteComputer);
 
 module.exports = router;
