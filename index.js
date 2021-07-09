@@ -12,9 +12,7 @@ const app = express();
 app.use(express.json());
 app.use(helmet());
 app.use(morgan("tiny"));
-
-const corsOptions = { origin: "http://https://pc-buffet.herokuapp.com" };
-app.use(cors(corsOptions));
+app.use(cors());
 
 //Set routes
 app.use("/api", computerRouter);
