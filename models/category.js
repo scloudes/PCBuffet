@@ -4,7 +4,7 @@ const categorySchema = new Schema(
   {
     title: String,
     category: String,
-    questions: Object,
+    questions: Array,
   },
   {
     timestamps: true,
