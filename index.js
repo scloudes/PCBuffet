@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
+const helmet = require("helmet");
 
 const computerRouter = require("./routes/computer.route");
 const categoryRouter = require("./routes/category.route");
@@ -9,9 +10,11 @@ require("./lib/mongo");
 const app = express();
 
 app.use(express.json());
+app.use(helmet());
 app.use(morgan("tiny"));
-const corsOptions = { origin: "http://https://pc-buffet.herokuapp.com/.com" };
-app.use(cors(corsOptions))
+
+const corsOptions = { origin: "http://https://pc-buffet.herokuapp.com" };
+app.use(cors(corsOptions));
 
 //Set routes
 app.use("/api", computerRouter);
