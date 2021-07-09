@@ -8,6 +8,7 @@ const {
   deleteComputer,
 } = require("../controllers/computer");
 
+
 const router = express.Router();
 
 router.get("/computer/", getComputers);

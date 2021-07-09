@@ -3,15 +3,19 @@ const cors = require("cors");
 const morgan = require("morgan");
 
 const computerRouter = require("./routes/computer.route");
+const categoryRouter = require("./routes/category.route");
 
 require("./lib/mongo");
 const app = express();
 
 app.use(express.json());
-app.use(morgan("dev"));
+app.use(morgan("tiny"));
+const corsOptions = { origin: "http://https://pc-buffet.herokuapp.com/.com" };
+app.use(cors(corsOptions))
 
 //Set routes
-app.use("/api", cors(), computerRouter);
+app.use("/api", computerRouter);
+app.use("/api", categoryRouter);
 
 const server = app.listen(process.env.PORT || 5000, () => {
   console.log(`Server is up - http://localhost:${server.address().port}`);
