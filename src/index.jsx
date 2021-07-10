@@ -1,13 +1,30 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
 import App from "./App";
-import reportWebVitals from "./reportWebVitals";
+import "./index.css";
+
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import reducer from "./reducers";
+
+const selectedCategory = localStorage.getItem("selectedCategory");
+
+const initialState = selectedCategory
+  ? JSON.parse(selectedCategory)
+  : {
+      category: null,
+      questions: null,
+    };
+
+const store = createStore(
+  reducer,
+  initialState,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById("root")
 );
-reportWebVitals();

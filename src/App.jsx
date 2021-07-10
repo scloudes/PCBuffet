@@ -1,30 +1,50 @@
 import React from "react";
-import Navbar from "./Components/Navbar";
-import Intersection from "./Components/Intersection";
-import Measurements from "./Components/Measurements";
-import ChartDetails from "./Components/ChartDetails";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { MuiThemeProvider, createTheme } from "@material-ui/core/styles";
+
+import axios from "axios";
+
+import Header from "components/Header";
+import Form from "pages/Form";
+import { Container } from "@material-ui/core";
+
 
 const App = () => {
+  axios.defaults.baseURL = "https://pc-buffet.herokuapp.com/api";
+  const THEME = createTheme({
+    typography: {
+      fontFamily: "Montserrat",
+      fontSize: 14,
+      fontWeightLight: 300,
+      fontWeightRegular: 400,
+      fontWeightMedium: 500,
+    },
+    palette: {
+      primary: {
+        main: "#E7A732",
+      },
+      secondary: {
+        main: "#343434",
+      },
+    },
+  });
+ 
   return (
-    <main>
-      <Navbar />
-      <Intersection
-        imageUrl="/images/desktop_computer.jpg"
-        hrefUrl="#components"
-        title="Tu PC ideal a unos clicks de distancia"
-        subtitle="PC Buffet realiza una comparación de entre una amplia base de datos
-            con los componentes que se encuentran en el mercado, encontrando los
-            adecuados para tus necesidades y presupueto."
-      />
-      <Measurements />
-      <Intersection
-        imageUrl="/images/video_edition.jpg"
-        hrefUrl="#graphic-example"
-        title="Lorem Ipsum"
-        subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin suscipit tempus ex, molestie euismod nunc gravida et. Quisque id lorem quis arcu ultrices tempor et eget dui. Mauris laoreet ante ut magna blandit, sit amet accumsan leo volutpat. Integer consequat."
-      />
-      <ChartDetails title="exampleChart" />
-    </main>
+    <MuiThemeProvider theme={THEME}>
+      <Router>
+        <Header />
+        <Container style={{ marginTop: "20px", marginBottom: "30px" }}>
+          <Switch>
+            <Route exact path="/">
+              <Form />
+            </Route>
+            <Route exact path="/computer/:id">
+              <div />
+            </Route>
+          </Switch>
+        </Container>
+      </Router>
+    </MuiThemeProvider>
   );
 };
 
