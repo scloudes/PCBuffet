@@ -51,10 +51,24 @@ const deleteComputer = async (req, res, next) => {
   }
 };
 
+const analyzeComputers = async (req, res, next) => {
+  try {
+    const computers = await Computer.find({
+      price: { $lt: req.body.price },
+    })
+      .sort({ price: -1 })
+      .limit(1);
+    res.status(200).json(computers);
+  } catch (err) {
+    next(err);
+  }
+};
+
 module.exports = {
   getComputers,
   getComputerById,
   createComputer,
   updateComputer,
   deleteComputer,
+  analyzeComputers,
 };
