@@ -20,8 +20,14 @@ const getComputerById = async (req, res, next) => {
 
 const createComputer = async (req, res, next) => {
   try {
-    const { model, price, images, components, url } = req.body;
-    const newComputer = new Computer({ model, price, images, components, url });
+    const { model, price, images, components, provider } = req.body;
+    const newComputer = new Computer({
+      model,
+      price,
+      images,
+      components,
+      provider,
+    });
     const ComputerSaved = await newComputer.save();
     res.status(201).json(ComputerSaved);
   } catch (err) {

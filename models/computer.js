@@ -6,7 +6,7 @@ const computerSchema = new Schema(
     price: Number,
     images: Array,
     components: Object,
-    url: String,
+    provider: Object,
   },
   {
     timestamps: true,
