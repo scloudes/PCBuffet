@@ -6,8 +6,8 @@ import axios from "axios";
 
 import Header from "components/Header";
 import Form from "pages/Form";
+import Computer from "pages/Computer";
 import { Container } from "@material-ui/core";
-
 
 const App = () => {
   axios.defaults.baseURL = "https://pc-buffet.herokuapp.com/api";
@@ -28,7 +28,7 @@ const App = () => {
       },
     },
   });
- 
+
   return (
     <MuiThemeProvider theme={THEME}>
       <Router>
@@ -38,8 +38,8 @@ const App = () => {
             <Route exact path="/">
               <Form />
             </Route>
-            <Route exact path="/computer/:id">
-              <div />
+            <Route exact path="/computer">
+              <Computer />
             </Route>
           </Switch>
         </Container>

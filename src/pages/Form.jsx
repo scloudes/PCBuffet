@@ -4,7 +4,18 @@ import Questions from "./Form/Questions";
 
 function Form() {
   const [step, setStep] = useState(0);
-  return !step ? <CategorySelector handler={setStep} /> : <Questions />;
+  return (
+    <>
+      <div style={{ display: `${step ? "none" : "block"}` }}>
+        <CategorySelector handler={setStep} />
+      </div>
+      {Boolean(step) && (
+        <>
+          <Questions handler={setStep} />
+        </>
+      )}
+    </>
+  );
 }
 
 export default Form;
